@@ -51,4 +51,3 @@ class HVmodel:
             print(f"MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}, QLIKE: {qlike:.4f}")
         return mae, mse, rmse, qlike
     
-##These are on resid_branch
