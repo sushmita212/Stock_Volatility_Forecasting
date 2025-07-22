@@ -1,0 +1,48 @@
+Ticker,Sector,#Observations,Clustering Score
+DIA,ETF,6465,1.615
+SPY,ETF,6458,1.528
+TLT,ETF,5780,1.507
+XLF,ETF,6465,1.29
+ARKK,ETF,2691,1.269
+XLK,ETF,6465,1.219
+GS,Finance,6463,1.069
+BG,commodity,6023,0.815
+NEM,commodity,6465,0.717
+JPM,Finance,6463,0.697
+SCHW,Finance,6463,0.611
+USB,Finance,6463,0.609
+PNC,Finance,6463,0.581
+MRNA,Health Tech,1658,0.558
+ADM,commodity,6465,0.538
+MOS,commodity,6465,0.527
+MS,Finance,6463,0.493
+BAC,Finance,6463,0.391
+CRSP,Health Tech,2196,0.286
+WFC,Finance,6463,0.186
+REGN,Health Tech,6464,0.183
+FCX,commodity,6465,0.168
+ILMN,Health Tech,6277,0.166
+VRTX,Health Tech,6464,0.119
+AMD,Technology,6463,0.115
+SLB,commodity,6465,0.096
+INTC,Technology,6463,0.092
+ORCL,Technology,6463,0.092
+CVX,commodity,6465,0.072
+NVCR,Health Tech,2460,0.065
+BIIB,Health Tech,6464,0.043
+GOLD,commodity,4134,0.041
+XOM,commodity,6465,0.038
+MSFT,Technology,6463,0.034
+QQQ,ETF,6457,0.034
+TSLA,Technology,3783,0.021
+AXP,Finance,6463,0.02
+IWM,ETF,6321,0.014
+C,Finance,6463,0.008
+DXCM,Health Tech,5095,0.004
+NVDA,Technology,6463,0.002
+EEM,ETF,5600,0.002
+AAPL,Technology,6463,-0.0
+AVGO,Technology,4008,-0.0
+CRM,Technology,5298,-0.0
+GOOGL,Technology,5258,-0.001
+VXX,ETF,4140,-0.008
