@@ -101,7 +101,8 @@ class GARCHWalkForward:
         rmse = np.sqrt(mse)
         qlike = np.mean(np.log(w_fwd_vol**2)+(test_vol/w_fwd_vol)**2)
         
-        self.error_metrics = {"MAE":mae, "MSE": mse, "RMSE": rmse, "QLIKE": qlike}
+        self.error_metrics = {"MAE":round(mae,3), "MSE": round(mse,3), "RMSE": round(rmse,3), "QLIKE": round(qlike,3)}
+        return self.error_metrics
 
 
     def residual_diagnostics(self, lags=10, plot=True):
@@ -166,9 +167,9 @@ class GARCHWalkForward:
 
         # Store or return test results
         self.resid_test_results = {
-            'ljung_box_pvalue': ljung_p,
-            'arch_test_pvalue': arch_p,
-            'jarque_bera_pvalue': jb_p
+            'ljung_box_pvalue': round(ljung_p,3),
+            'arch_test_pvalue': round(arch_p,3),
+            'jarque_bera_pvalue': round(jb_p,3)
         }
 
         return self.resid_test_results
