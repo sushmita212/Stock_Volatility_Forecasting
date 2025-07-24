@@ -14,6 +14,7 @@ class clusteringTest:
     def __init__(self, data):
         self.data = data
 
+
     def plotACF(self, lags=20):
         fig, ax = plt.subplots(figsize=(10, 5))
         plot_acf(self.data**2, lags=lags, ax=ax)
@@ -30,14 +31,11 @@ class clusteringTest:
         return round(score, 3)
 
 class GARCHWalkForward:
-    def __init__(self, stock_data, train_size=0.8):
+    def __init__(self, stock_data, ticker, train_size=0.8):
         self.stock_data = stock_data
+        self.ticker = ticker
         self.train_size = train_size
-        self.residuals = None
-        self.fit_params = None
-        self.predictions = None
-        self.y_test = None
-        self.error_metrics = None
+        
         
     
     def fit_garch(self):
@@ -79,12 +77,25 @@ class GARCHWalkForward:
         w_fwd_vol= pd.Series(self.predictions, index=self.y_test.index, name='Predicted Volatility')
         test_vol= (1/(4*np.log(2))*(((np.log(self.stock_data['high']/self.stock_data['low'])*100)**2)).rolling(window=1).mean())
         test_vol=np.sqrt(test_vol).iloc[-len(self.y_test):]
+        
+        # Smoothening for better plot interpretability
+        window = 5
+        predicted_smooth = w_fwd_vol.rolling(window).mean().dropna()
+        realized_smooth = test_vol.rolling(window).mean().dropna()
+
+        # align the index for returns, relaized_smooth and predicted smooth
+        common_index = predicted_smooth.index.intersection(realized_smooth.index).intersection(self.y_test.index)
+        log_returns = self.y_test.loc[common_index]
+        predicted_smooth = predicted_smooth.loc[common_index]
+        realized_smooth = realized_smooth.loc[common_index]
+
+
         plt.figure(figsize=(10, 6))
-        plt.plot(self.y_test.index, self.y_test, color='lightgray', label='Log Returns')
-        plt.plot(self.y_test.index, w_fwd_vol, color='black', label='Predicted Volatility')
-        plt.plot(test_vol.index, test_vol, color='red', label='Actual Volatility')
+        plt.plot(common_index, log_returns, color='lightgray', label='Log Returns')
+        plt.plot(common_index, predicted_smooth, color='black',  label='Predicted Volatility')
+        plt.plot(common_index, realized_smooth, color='red',alpha=0.7, label='Realized Volatility')
         plt.legend()
-        plt.title('GARCH Model Walk Forward Prediction')
+        plt.title(f'GARCH Model Walk Forward Prediction for {self.ticker}')
         plt.xlabel('Date')
         plt.ylabel('Volatility')
         plt.show()
