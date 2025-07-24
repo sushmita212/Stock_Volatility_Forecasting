@@ -59,6 +59,8 @@ class GARCHWalkForward:
 
             # save model parameters
             params_dict = res.params.to_dict()
+            params_dict['aic'] = res.aic
+            params_dict['bic'] = res.bic
             params_list.append(params_dict)
             
             # calculate residuals
