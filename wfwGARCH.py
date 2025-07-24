@@ -59,14 +59,17 @@ class GARCHWalkForward:
             params_dict = res.params.to_dict()
             params_dict['aic'] = res.aic
             params_dict['bic'] = res.bic
+            # here we use the index at cutoff+i because the params_dict for each i corresponds to the date at iloc cutoff+i.
+            # This ensures proper alignment in dates
+            params_dict['date'] = self.stock_data.index[cutoff+i] 
             params_list.append(params_dict)
             
             # calculate residuals
-            actual_return = self.stock_data['returns'].iloc[-(len(self.y_test)-i)]
+            actual_return = self.stock_data['returns'].iloc[cutoff+i] # cutoff+i ensures proper date alignment
             z = (actual_return-params_dict['mu'])/ pred_vol
             resids.append(z)
         self.residuals = pd.Series(resids)
-        self.fit_params = params_list
+        self.fit_params = pd.DataFrame(params_list).set_index('date')
         self.predictions = w_fwd_pred
         
 
@@ -186,3 +189,25 @@ class GARCHWalkForward:
         }
 
         return self.resid_test_results
+    
+    def plot_alpha_beta_sum(self):
+        """
+        Plots the evolution of alpha + beta over walk-forward windows.
+
+        Interpretation:
+        - alpha + beta close to 1 indicates high volatility persistence.
+        - alpha + beta > 1 indicates potential model instability.
+        """
+         
+        self.fit_params['alpha_plus_beta'] = self.fit_params['alpha[1]'] + self.fit_params['beta[1]']
+
+        plt.figure(figsize=(8, 4))
+        plt.plot(self.fit_params.index, self.fit_params['alpha_plus_beta'], color='blue', label=r'$\alpha + \beta$')
+        plt.axhline(y=1, color='red', linestyle='--', label='Stationarity Threshold (1.0)')
+        plt.ylim(0.95, 1.002) 
+        plt.title(r'Evolution of $\alpha + \beta$ over Walk-Forward Steps')
+        plt.xlabel('Date')
+        plt.ylabel(r'$\alpha + \beta$')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
