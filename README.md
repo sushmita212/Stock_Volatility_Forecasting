@@ -7,6 +7,8 @@ Volatility is usually calculated on returns and not on raw stock prices, because
 <br>
 $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$
 
+## Stock data and volatility clustering
+
 ## GARCH(1,1) model
 The GARCH(1,1) models the time-varying volatility (variance) of returns. The returns are of the form
 $$r_t=\mu+\epsilon_t$$
@@ -35,7 +37,6 @@ To evaluate the performance of the GARCH(1,1) model under realistic conditions w
 This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance. We store the predicted volatility and the GARCH(1,1) fit parameters $(\mu, \omega, \alpha, \beta)$ at each iteration to evaluate how the model performs over time.
 
 ### Model diagnostics
-
 
 ### Error metrics
 
