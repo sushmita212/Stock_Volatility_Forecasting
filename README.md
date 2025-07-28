@@ -7,8 +7,6 @@ Volatility is usually calculated on returns and not on raw stock prices, because
 <br>
 $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$
 
-## Volatility clustering
-
 ## GARCH(1,1) model
 The GARCH(1,1) models the time-varying volatility (variance) of returns. The returns are of the form
 $$r_t=\mu+\epsilon_t$$
