@@ -22,3 +22,9 @@ where
 - $\omega>=0$ is the long-run average variace,
 - $\alpha>=0$ is the ARCH parameter (reaction to recent shocks),
 - $\beta>=0$ is the GARCH parameter (persistence of past variance).
+
+Financial time series data, such as stock returns, often exhibit **volatility clustering** — periods of high volatility tend to be followed by high volatility, and periods of calm tend to persist. This characteristic violates the assumptions of constant variance in simpler models.
+
+The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
+
+
