@@ -9,8 +9,7 @@ $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$
 
 ## Stock data and volatility clustering
 We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. For each stock, we compute a clustering score to quantify the degree of volatility clustering. This is defined as
-<br>
-$$ Clustering Score = \sum_{l=1}^5 ACF(r_t^2, lag=l)$$
+$Clustering Score = \sum_{l=1}^5 ACF(r_t^2, lag=l)$
 where ACF is the autocorrelation function. This captures the persistence of volatility, which is characteristic of volatility clustering.
 
 ## GARCH(1,1) model
