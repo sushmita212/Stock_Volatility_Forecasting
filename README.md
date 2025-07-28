@@ -32,9 +32,10 @@ To evaluate the performance of the GARCH(1,1) model under realistic conditions w
 - The model is retrained at each step using a moving window of historical data. We walk-forward by one time step at each iteration.
 - At each iteration, the model forecasts the next-period volatility based only on data available up to that point.
 
-This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance.
+This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance. We store the predicted volatility and the GARCH(1,1) fit parameters $(\mu, \omega, \alpha, \beta)$ at each iteration to evaluate how the model performs over time.
 
 ### Model diagnostics
+
 
 ### Error metrics
 
