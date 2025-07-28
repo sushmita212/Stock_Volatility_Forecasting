@@ -14,9 +14,15 @@ The GARCH(1,1) models the time-varying volatility (variance) of returns. The ret
 <br> 
 $$r_t=\mu+\epsilon_t$$
 
-where $r_t$ is the return at time $t$, $\mu$ is the modeled mean return, and $\epsilon_t$ is the residual (shock). The conditional variance equation is
+where 
+- $r_t$ is the return at time $t$, 
+- $\mu$ is the modeled mean return, and 
+- $\epsilon_t$ is the residual (shock). 
+<br>
+The conditional variance equation is
 <br>
 $$\sigma_t^2=\omega+\alpha\epsilon_{t-1}^2+\beta\sigma_{t-1}^2$$
+<br>
 where
 - $\sigma_t^2$ is the conditional variance at time $t$,
 - $\omega>=0$ is the long-run average variace,
