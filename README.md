@@ -13,7 +13,7 @@ $$r_t=\mu+\epsilon_t$$
 where 
 - $r_t$ is the return at time $t$, 
 - $\mu$ is the modeled mean return, and 
-- $\epsilon_t$ is the residual (shock). 
+- $\epsilon_t \sim N(0,\sigma_t^2)$ is the residual (shock). 
 
 The conditional variance equation is
 $$\sigma_t^2=\omega+\alpha\epsilon_{t-1}^2+\beta\sigma_{t-1}^2$$
