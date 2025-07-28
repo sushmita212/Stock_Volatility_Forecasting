@@ -14,9 +14,7 @@ Financial time series data, such as stock returns, often exhibit **volatility cl
 $\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$,
 where ACF is the autocorrelation function. This captures the persistence of volatility, which is characteristic of volatility clustering.
 
-Volatility clustering violates the assumptions of constant variance in simpler models.
-
-The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
+Volatility clustering violates the assumptions of constant variance in simpler models. The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
 
 
 ## GARCH(1,1) model
