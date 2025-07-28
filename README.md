@@ -28,5 +28,13 @@ Financial time series data, such as stock returns, often exhibit **volatility cl
 The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
 
 ### Walk-forward implementation
+To evaluate the performance of the GARCH(1,1) model under realistic conditions we implement a walk-forward validation framework. In this approach:
+- The model is retrained at each step using a moving window of historical data. We walk-forward by one time step at each iteration.
+- At each iteration, the model forecasts the next-period volatility based only on data available up to that point.
+
+This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance.
+
+
+
 
 
