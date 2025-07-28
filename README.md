@@ -38,13 +38,34 @@ To evaluate the performance of the GARCH(1,1) model under realistic conditions w
 - The model is retrained at each step using a moving window of historical data. We walk-forward by one time step at each iteration.
 - At each iteration, the model forecasts the next-period volatility based only on data available up to that point.
 
-This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance. We store the predicted volatility and the GARCH(1,1) fit parameters $(\mu, \omega, \alpha, \beta)$ at each iteration to evaluate how the model performs over time.
+This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance. We store the predicted volatility ($\sigma_t$) and the GARCH(1,1) fit parameters $(\mu, \omega, \alpha, \beta)$ at each iteration to evaluate how the model performs over time.
 
 ### Model diagnostics
+To ensure that the model adequately captures time-varying volatility we analyze the standardized residuals and evolution of model parameters. 
+The standardized residuals are calculated as $z_t=(r_t-\mu)/\sigma_t$ at each iteration of the walk-forward loop. If the GARCH model is specified correctly then $z_t$ should have zero mean, constant variance (homoskedastic), be approximately IID (independent and identically distributed). Standardized resoduals often follow a standard normal or standardized t-distribution. 
+
+
+To verify that this holds for our fitted GARCH model we perform
+- **Statistical tests**
+(1) Ljung-Box Test: Tests for autocorrelation in residuals.
+
+(2) ARCH Test: Checks for remaining heteroskedasticity.
+
+(3) Jarque-Bera Test: Evaluates normality of residuals.
+
+- **Visual diagnostics**
+(1) Histogram of standardized residuals
+
+(2) Q-Q Plot to assess normality
+
+(3) ACF Plot for residuals and squared residuals
+
+(4) Line Plot of $\alpha+\beta$ over time
+
 
 ### Error metrics
 
-## Comparison with simpler historical volatitlity (HV) prediction 
+## Comparison with the simpler historical volatitlity (HV) prediction 
 
 
 
