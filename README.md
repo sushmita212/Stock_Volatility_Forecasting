@@ -48,6 +48,7 @@ The standardized residuals are calculated at each iteration of the walk-forward 
 In the GARCH(1,1) model, the sum $\alpha+\beta$ measures the persistence of volatility. Values close to 1 indicate that volatility shocks decay slowly, which is consistent with the presence of volatility clustering — a key motivation for using GARCH models.
 
 To verify that these assumptions hold for the fitted GARCH model, we perform the following statistical tests and visual diagnostics:
+
 **Statistical tests**
 - Ljung-Box Test: Tests for autocorrelation in residuals.
 - ARCH Test: Checks for remaining conditional heteroskedasticity.
