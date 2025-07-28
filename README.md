@@ -13,12 +13,10 @@ $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$
 The GARCH(1,1) models the time-varying volatility (variance) of returns. The returns are of the form
 <br> 
 $$r_t=\mu+\epsilon_t$$
-
 where 
 - $r_t$ is the return at time $t$, 
 - $\mu$ is the modeled mean return, and 
 - $\epsilon_t$ is the residual (shock). 
-<br>
 The conditional variance equation is
 <br>
 $$\sigma_t^2=\omega+\alpha\epsilon_{t-1}^2+\beta\sigma_{t-1}^2$$
