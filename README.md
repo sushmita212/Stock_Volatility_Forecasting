@@ -27,4 +27,6 @@ Financial time series data, such as stock returns, often exhibit **volatility cl
 
 The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
 
+### Walk-forward implementation
+
 
