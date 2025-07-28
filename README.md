@@ -34,6 +34,15 @@ To evaluate the performance of the GARCH(1,1) model under realistic conditions w
 
 This method mimics how GARCH models would be used in live financial settings, where future data is unknown. This revents data leakage from future observations and provides a more robust estimate of out-of-sample predictive performance.
 
+### Model diagnostics
+
+### Error metrics
+
+## Comparison with simpler historical volatitlity (HV) prediction 
+
+
+
+
 
 
 
