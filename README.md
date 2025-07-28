@@ -62,7 +62,7 @@ To verify that these assumptions hold for the fitted GARCH model, we perform the
 
 ### Error metrics
 
-## Comparison with the simpler historical volatitlity (HV) prediction 
+## Comparison with the simpler historical volatility (HV) prediction 
 
 
 
