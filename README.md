@@ -43,23 +43,21 @@ This method mimics how GARCH models would be used in live financial settings, wh
 ### Model diagnostics
 To ensure that the model adequately captures time-varying volatility we analyze the standardized residuals and evolution of model parameters. 
 
-The standardized residuals are calculated as $z_t=(r_t-\mu)/\sigma_t$ at each iteration of the walk-forward loop. If the GARCH model is specified correctly then $z_t$ should have zero mean, constant variance (homoskedastic), be approximately IID (independent and identically distributed). Standardized resoduals often follow a standard normal or standardized t-distribution. 
+The standardized residuals are calculated at each iteration of the walk-forward loop as $z_t=(r_t-\mu)/\sigma_t$. If the GARCH model is specified correctly then $z_t$ should have zero mean, constant variance (homoskedastic), be approximately IID (independent and identically distributed). Standardized resoduals often follow a standard normal or standardized t-distribution, depending on the distribution assumed in the model.
 
 In the GARCH(1,1) model, the sum $\alpha+\beta$ measures the persistence of volatility. Values close to 1 indicate that volatility shocks decay slowly, which is consistent with the presence of volatility clustering — a key motivation for using GARCH models.
 
-
-To verify that these points holds for our fitted GARCH model we perform
+To verify that these assumptions hold for the fitted GARCH model, we perform the following statistical tests and visual diagnostics:
 **Statistical tests**
 - Ljung-Box Test: Tests for autocorrelation in residuals.
-- ARCH Test: Checks for remaining heteroskedasticity.
-- Jarque-Bera Test: Evaluates normality of residuals.
+- ARCH Test: Checks for remaining conditional heteroskedasticity.
+- Jarque-Bera Test:  Evaluates whether the residuals follow a normal distribution based on skewness and kurtosis.
 
 **Visual diagnostics**
-- Histogram of standardized residuals: To visually assess distribution shape and outliers.
+- Histogram of standardized residuals: Assesses the shape of the distribution and presence of outliers.
 - Q-Q Plot: Compares residual quantiles against a theoretical normal distribution to detect deviations from normality.
 - ACF Plot for residuals: Used to verify independence and absence of remaining structure.
-- Line Plot of $\alpha+\beta$ over time: To check model stability and persistance of volatility.
-
+- Line Plot of $\alpha+\beta$ over time:  Examines the stability of the model and persistence of volatility across the walk-forward iterations.
 
 ### Error metrics
 
