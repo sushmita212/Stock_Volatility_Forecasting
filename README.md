@@ -8,9 +8,16 @@ Volatility is usually calculated on returns and not on raw stock prices, because
 $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$
 
 ## Stock data and volatility clustering
-We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. For each stock, we compute a clustering score to quantify the degree of volatility clustering. This is defined as
-$\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$
+We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. 
+
+Financial time series data, such as stock returns, often exhibit **volatility clustering** — periods of high volatility tend to be followed by high volatility, and periods of calm tend to persist. For each stock, we compute a clustering score to quantify the degree of volatility clustering. This is defined as:
+$\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$,
 where ACF is the autocorrelation function. This captures the persistence of volatility, which is characteristic of volatility clustering.
+
+Volatility clustering violates the assumptions of constant variance in simpler models.
+
+The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
+
 
 ## GARCH(1,1) model
 The GARCH(1,1) models the time-varying volatility (variance) of returns. The returns are of the form
@@ -27,10 +34,6 @@ where
 - $\omega>=0$ is the long-run average variace,
 - $\alpha>=0$ is the ARCH parameter (reaction to recent shocks),
 - $\beta>=0$ is the GARCH parameter (persistence of past variance).
-
-Financial time series data, such as stock returns, often exhibit **volatility clustering** — periods of high volatility tend to be followed by high volatility, and periods of calm tend to persist. This characteristic violates the assumptions of constant variance in simpler models.
-
-The GARCH(1,1) model addresses this by modeling the **conditional variance** as a function of past squared returns (recent shocks) and past variances. This makes it well-suited for capturing volatility dynamics and forecasting risk in financial markets.
 
 ### Walk-forward implementation
 To evaluate the performance of the GARCH(1,1) model under realistic conditions we implement a walk-forward validation framework. In this approach:
