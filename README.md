@@ -26,7 +26,7 @@ We assess model fit using both statistical tests and visual tools:
 ## Evaluation
 We compare GARCH volatility forecasts with a Parkinson estimator of realized volatility, and benchmark against historical volatility.
 
-## Stock data and volatility clustering
+<!-- ## Stock data and volatility clustering
 We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. 
 
 Financial time series data, such as stock returns, often exhibit **volatility clustering** — periods of high volatility tend to be followed by high volatility, and periods of calm tend to persist. For each stock, we compute a clustering score to quantify the degree of volatility clustering. This is defined as:
@@ -89,4 +89,4 @@ To verify that these assumptions hold for the fitted GARCH model, we perform the
 
 
 
-
+ -->
