@@ -12,6 +12,14 @@ Stock returns often exhibit volatility clustering — periods of high volatility
 - Stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities is used to enable a more generalized and robust analysis. 
 - Each stock is assigned a clustering score based on autocorrelation of squared returns: $$\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$$
 
+## Walk-forward validation
+We implement a walk-forward approach to simulate real-world forecasting:
+- Retrain the GARCH model on a rolling window
+- Forecast next-day volatility
+- Store predicted volatility and model parameters at each step
+
+
+
 ## Stock data and volatility clustering
 We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. 
 
