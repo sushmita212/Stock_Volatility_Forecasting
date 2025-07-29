@@ -18,6 +18,10 @@ We implement a walk-forward approach to simulate real-world forecasting:
 - Forecast next-day volatility
 - Store predicted volatility and model parameters at each step
 
+## Model diagnostics
+We assess model fit using both statistical tests and visual tools:
+- Tests: Ljung-Box (autocorrelation), ARCH (heteroskedasticity), Jarque-Bera (normality) for standardized residuals $z_t=(r_t-\mu)/\sigma_t$.
+- Visuals: Histogram, Q-Q plot, ACF plot of standardized residuals, time series of $\alpha+\beta$, and time series of predicted and realized (Parkinson estimator) volatility.
 
 
 ## Stock data and volatility clustering
