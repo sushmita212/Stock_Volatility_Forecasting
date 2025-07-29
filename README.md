@@ -8,9 +8,9 @@ Stock returns often exhibit volatility clustering — periods of high volatility
 
 
 ## Methodology
-- Returns are calculates as log differences of closing prices: $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$.
+- Returns are calculated as log differences of closing prices: $$r_t=ln\left(\frac{P_t}{P_{t-1}}\right)$$.
 - Stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities is used to enable a more generalized and robust analysis. 
-- Each stock is assigned a clustering score based on autocorrelation of squared returns:$\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$
+- Each stock is assigned a clustering score based on autocorrelation of squared returns: $$\text{Clustering Score} = \sum_{l=1}^5 ACF(r_t^2, lag=l)$$
 
 ## Stock data and volatility clustering
 We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. 
