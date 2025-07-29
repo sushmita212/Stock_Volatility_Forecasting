@@ -19,7 +19,7 @@ class clusteringTest:
         fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
         # Plot log returns
-        axes[0].plot(self.data, color='gray', alpha=0.8)
+        axes[0].plot(self.data, color='green', alpha=0.8)
         axes[0].set_title(f'Log Returns for {self.ticker}')
         axes[0].set_xlabel('Date')
         axes[0].set_ylabel('Return')
