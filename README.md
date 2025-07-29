@@ -23,6 +23,8 @@ We assess model fit using both statistical tests and visual tools:
 - Tests: Ljung-Box (autocorrelation), ARCH (heteroskedasticity), Jarque-Bera (normality) for standardized residuals $z_t=(r_t-\mu)/\sigma_t$.
 - Visuals: Histogram, Q-Q plot, ACF plot of standardized residuals, time series of $\alpha+\beta$, and time series of predicted and realized (Parkinson estimator) volatility.
 
+## Evaluation
+We compare GARCH volatility forecasts with a Parkinson estimator of realized volatility, and benchmark against historical volatility.
 
 ## Stock data and volatility clustering
 We use stock data from multiple sectors including Finance, ETFs, Healthcare, Technology, and Commodities to enable a more generalized and robust analysis. 
