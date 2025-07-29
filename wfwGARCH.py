@@ -4,23 +4,33 @@ import matplotlib.pyplot as plt
 from arch import arch_model
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from statsmodels.tsa.stattools import acf
-from statsmodels.graphics.tsaplots import plot_acf
 import statsmodels.api as sm
 from statsmodels.stats.diagnostic import acorr_ljungbox, het_arch
 from scipy.stats import jarque_bera, norm
 
 
 class clusteringTest:
-    def __init__(self, data):
+    def __init__(self, data, ticker):
         self.data = data
+        self.ticker = ticker
 
 
     def plotACF(self, lags=20):
-        fig, ax = plt.subplots(figsize=(10, 5))
-        plot_acf(self.data**2, lags=lags, ax=ax)
-        plt.title('Autocorrelation Function')
-        plt.xlabel('Lags')
-        plt.ylabel('ACF')
+        fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+        # Plot log returns
+        axes[0].plot(self.data, color='gray', alpha=0.8)
+        axes[0].set_title(f'Log Returns for {self.ticker}')
+        axes[0].set_xlabel('Date')
+        axes[0].set_ylabel('Return')
+
+        # Plot ACF of squared returns
+        sm.graphics.tsa.plot_acf(self.data**2, lags=lags, ax=axes[1])
+        axes[1].set_title(f'ACF of $r_t^2$ for {self.ticker}')
+        axes[1].set_xlabel('Lags')
+        axes[1].set_ylabel('ACF')
+
+        plt.tight_layout()
         plt.show()
 
     def clusteringScore(self, lags=5, print_score=False):
