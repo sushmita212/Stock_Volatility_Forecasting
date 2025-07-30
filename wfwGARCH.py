@@ -58,7 +58,7 @@ class GARCHWalkForward:
         for i in range(len(self.y_test)):
             y_train = self.stock_data["returns"].iloc[0:-(len(self.y_test)-i)]
             model = arch_model(y_train, vol='GARCH', p=1, q=1, rescale=False)
-            res= model.fit(disp=0)
+            res= model.fit(disp=0, show_warning=False)
             
             # model forecast
             forecasts = res.forecast(horizon=1)
