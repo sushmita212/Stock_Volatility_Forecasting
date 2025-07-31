@@ -42,6 +42,10 @@ We evaluate model performance across assets with different levels of volatility 
 - Lower-clustering assets show mixed results: GARCH sometimes improves bias (MAE) but not variance (RMSE), or vice versa — indicating that no single metric fully captures performance.
 - Volatility clustering scores help identify assets where GARCH is likely to be effective, serving as a useful preprocessing signal.
 
+![Clustering vs QLIKE](./results/clustering_vs_deltaQLIKE.png)  
+*Figure 2: Delta QLIKE (%) vs volatility clustering score. GARCH performs better on assets with higher clustering.*
+
+
 ## Conclusion 
 Our results show that GARCH(1,1) models offer a meaningful advantage over simpler historical volatility estimates when applied thoughtfully. In particular, combining:
 - Volatility clustering scoring for model selection,
