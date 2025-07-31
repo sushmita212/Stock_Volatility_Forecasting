@@ -29,7 +29,6 @@ To assess the accuracy of volatility forecasts, we benchmark GARCH(1,1) predicti
 - MAE (Mean Absolute Error) – captures average prediction bias
 - MSE / RMSE (Root Mean Squared Error) – penalizes larger deviations more heavily
 - QLIKE (Quasi-Likelihood Loss) – commonly used in volatility modeling for its sensitivity to large forecast errors and changes in volatility levels over time
-<br>
 We evaluate model performance across assets with different levels of volatility clustering (as measured by autocorrelation of squared returns).
 
 ## Key Observations
@@ -43,7 +42,6 @@ Our results show that GARCH(1,1) models offer a meaningful advantage over simple
 - Volatility clustering scoring for model selection,
 - Walk-forward validation for realistic performance tracking, and
 - Robust multi-metric evaluation
-<br>
 allows us to build more nuanced, actionable volatility forecasts for financial decision-making.
 
 
