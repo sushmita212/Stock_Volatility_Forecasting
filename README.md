@@ -18,6 +18,10 @@ We implement a walk-forward approach to simulate real-world forecasting:
 - Forecast next-day volatility
 - Store predicted volatility and model parameters at each step
 
+![Walk-Forward GARCH for DIA](./results/DIA_GARCH_pred.png)  
+*Figure 1: Walk-forward GARCH(1,1) volatility prediction for DIA compared with realized volatility.*
+
+
 ## Model diagnostics
 We assess model fit using both statistical tests and visual tools:
 - Tests: Ljung-Box (autocorrelation), ARCH (heteroskedasticity), Jarque-Bera (normality) for standardized residuals $z_t=(r_t-\mu)/\sigma_t$.
