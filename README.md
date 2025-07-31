@@ -24,17 +24,27 @@ We assess model fit using both statistical tests and visual tools:
 - Visuals: Histogram, Q-Q plot, ACF plot of standardized residuals, time series of $\alpha+\beta$, and time series of predicted and realized (Parkinson estimator) volatility.
 
 ## Evaluation
-We compare GARCH volatility forecasts with a Parkinson estimator of realized volatility, and benchmark against historical volatility.
+To assess the accuracy of volatility forecasts, we benchmark GARCH(1,1) predictions against the Parkinson estimator of realized volatility and compare them with a simple rolling historical volatility model. Evaluation is done using multiple error metrics:
+<br>
+- MAE (Mean Absolute Error) – captures average prediction bias
+- MSE / RMSE (Root Mean Squared Error) – penalizes larger deviations more heavily
+- QLIKE (Quasi-Likelihood Loss) – commonly used in volatility modeling for its sensitivity to large forecast errors and changes in volatility levels over time
+<br>
+We evaluate model performance across assets with different levels of volatility clustering (as measured by autocorrelation of squared returns).
 
-## Summary of Findings
-We find that GARCH(1,1) models tend to outperform simple historical volatility estimates, especially for assets exhibiting strong volatility clustering. This is particularly evident in ETFs and certain stocks from the Finance and Technology sectors, where autocorrelation in squared returns is pronounced.
+## Key Observations
+- GARCH(1,1) consistently outperforms historical volatility for stocks and ETFs that exhibit strong volatility clustering. T
+- RMSE and QLIKE show the most consistent improvements for high-clustering assets, highlighting GARCH’s strength in capturing dynamic volatility patterns. These metrics are especially important in financial applications like risk management and options pricing.- 
+- Lower-clustering assets show mixed results: GARCH sometimes improves bias (MAE) but not variance (RMSE), or vice versa — indicating that no single metric fully captures performance.
+- Volatility clustering scores help identify assets where GARCH is likely to be effective, serving as a useful preprocessing signal.
 
-To evaluate model accuracy, we use multiple error metrics: MAE, MSE, RMSE, and QLIKE, with the Parkinson estimator serving as a proxy for realized volatility. Among these:
+## Conclusion 
+Our results show that GARCH(1,1) models offer a meaningful advantage over simpler historical volatility estimates when applied thoughtfully. In particular, combining:
+- Volatility clustering scoring for model selection,
+- Walk-forward validation for realistic performance tracking, and
+- Robust multi-metric evaluation
+<br>
+allows us to build more nuanced, actionable volatility forecasts for financial decision-making.
 
-RMSE and QLIKE, which are more sensitive to large errors and volatility scaling, show the strongest improvements for high-clustering assets. These metrics are especially important in financial applications like risk management and options pricing.
 
-The multi-metric approach also reveals nuanced behavior: some stocks improve in bias (lower MAE) but not in variance (lower RMSE), or vice versa, highlighting the complexity of volatility dynamics.
 
-Overall, our results suggest that volatility clustering scores can help identify when GARCH modeling is more appropriate, and that RMSE and QLIKE are the most reliable indicators of forecasting effectiveness in financial settings.
-
-Let me know if you'd like to break this into bullet points or add visuals/tables to the README for a more data-rich presentation.
