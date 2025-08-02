@@ -1,4 +1,5 @@
 import os
+import numpy as np
 import pandas as pd
 import requests
 from dotenv import load_dotenv
@@ -56,7 +57,10 @@ class stock_data:
         try:
             sql = f"SELECT * FROM {table_name}"
             df=pd.read_sql(sql, con, parse_dates="data", index_col="date")
-            
+            df.index = pd.to_datetime(df.index, format = "ISO8601")
+            df.sort_index(inplace=True)
+            df["returns"] = np.log(df["close"]/df["close"].shift(1))*100
+            df.dropna(inplace=True)
             return df
         except Exception as e:
             print(str(e))
