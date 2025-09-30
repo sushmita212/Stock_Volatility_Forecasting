@@ -32,7 +32,7 @@ To assess the accuracy of volatility forecasts, we benchmark GARCH(1,1) predicti
 <br>
 - MAE (Mean Absolute Error) – captures average prediction bias
 - MSE / RMSE (Root Mean Squared Error) – penalizes larger deviations more heavily
-- QLIKE (Quasi-Likelihood Loss) – commonly used in volatility modeling for its sensitivity to large forecast errors and changes in volatility levels over time
+- QLIKE (Quasi-Likelihood Loss) – penalizes underprediction more strongly than overprediction. This is a preferred metrc for risk management applications.
 
 We evaluate model performance across assets with different levels of volatility clustering (as measured by autocorrelation of squared returns).
 
